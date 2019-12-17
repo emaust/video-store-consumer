@@ -3,4 +3,4 @@ import './Game.css';
 import Library from './components/Library';
 
 
-export default Search;
+export default Customers;
