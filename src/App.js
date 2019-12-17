@@ -8,6 +8,10 @@ import {
   Link
 } from "react-router-dom";
 
+function Home() {
+  return <h2>Home</h2>;
+}
+
 function Library() {
   return <h2>Library</h2>;
 }
@@ -27,11 +31,14 @@ class App extends Component {
         <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">El Video</h1>
         </header>
 
           <nav>
             <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
               <li>
                 <Link to="library">Library</Link>
               </li>
@@ -46,6 +53,9 @@ class App extends Component {
         </div>
 
     <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
       <Route path="/library">
         <Library />
       </Route>
@@ -59,8 +69,6 @@ class App extends Component {
     </Router>
     );
   }
-
-
 }
 
 export default App;
