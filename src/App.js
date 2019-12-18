@@ -4,8 +4,10 @@ import logo from './logo.svg';
 
 import './App.css';
 // import Home from './components/Home';
-// import Search from './components/Search';
+
+import Search from './components/Search';
 import Library from './components/Library';
+
 // import Customers from './components/Customers';
 import {
   BrowserRouter as Router,
@@ -72,18 +74,18 @@ class App extends Component {
         </div>
 
     <Switch>
-      <Route path="/">
+      {/* <Route path="/">
         <Home />
-      </Route>
-      <Route path="/library">
+      </Route> */}
+      {/* <Route path="/library">
         <Library />
-      </Route>
+      </Route> */}
       <Route path="/search">
         <Search />
       </Route>
-      <Route path="/customers">
+      {/* <Route path="/customers">
         <Customers />
-      </Route>
+      </Route> */}
     </Switch>
     </Router>
     );
