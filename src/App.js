@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
+
 import './App.css';
 // import Home from './components/Home';
+
 import Search from './components/Search';
-// import Library from './components/Library';
+import Library from './components/Library';
+
 // import Customers from './components/Customers';
 import {
   BrowserRouter as Router,
@@ -15,6 +19,33 @@ import {
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      libraryMovies: [],
+      selectedCustomer: undefined,
+      selectedMovie: undefined,
+      error: '',
+    };
+  }
+
+  componentDidMount () {
+    axios.get('http://localhost:3000/movies')
+    .then((response) => {
+      this.setState({
+        libraryMovies: response.data
+      })
+    })
+    .catch((error) => {
+      this.setState({
+        error: error
+      })
+    })
+  }
+
+
   render() {
     return (
       <Router>
