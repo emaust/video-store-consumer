@@ -2,11 +2,8 @@ import React from 'react';
 
 const Movie = (props) => {
 
-  const { inventory, title, imageUrl, overview, releaseDate } = props;
+  const { title, imageUrl, overview, releaseDate } = props;
   // use id from props??
-
-
-  const stock = inventory || "out of stock"
 
   return (
     <div >
@@ -23,9 +20,6 @@ const Movie = (props) => {
       </p>
       <p>
         {releaseDate}
-      </p>
-      <p>
-        {stock}
       </p>
     </div>
   )
