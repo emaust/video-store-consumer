@@ -6,7 +6,7 @@ const Movie = (props) => {
   // use id from props??
 
   return (
-    <div >
+    <div className="movie-container">
       <section>
         <h3>
           {title}
@@ -21,6 +21,9 @@ const Movie = (props) => {
       <p>
         {releaseDate}
       </p>
+
+      {/* if there's a prop that says selectable, show select button */}
+      {/* if there's a propt that says add-to-library-able, show add to library button */}
     </div>
   )
   
