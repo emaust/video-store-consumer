@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Library from './Library';
 class Search extends Component {
   
   constructor(props) {
@@ -41,26 +42,32 @@ class Search extends Component {
   render() { 
     
     return (
-      <form
-      name="movie-search"
-      onSubmit={this.onSubmitSearch}
-      >
-       <div>
-         <label htmlFor="movie-search">Search for Movie: </label>
-        <input
-          type="text"
-          name="titleSearch"
-          value={this.state.title}
-          onChange={this.onInputChange}
-          placeholder="Enter movie title"
-          />
-          <input
-          type="submit"
-          value="Submit"
-          onClick={this.onSubmitSearch}
-          />
-       </div>
-      </form>
+      <div>
+        <form
+        name="movie-search"
+        onSubmit={this.onSubmitSearch}
+        >
+          <div>
+            <label htmlFor="movie-search">Search for Movie: </label>
+            <input
+              type="text"
+              name="titleSearch"
+              value={this.state.title}
+              onChange={this.onInputChange}
+              placeholder="Enter movie title"
+              />
+              <input
+              type="submit"
+              value="Submit"
+              onClick={this.onSubmitSearch}
+              />
+          </div>
+        </form>
+
+        <div>
+          {this.state.searchResults ? <Library movies={this.state.searchResults} /> : "" }
+        </div>
+      </div>
     )};
   }
 
