@@ -22,8 +22,8 @@ const Movie = (props) => {
         {releaseDate}
       </p>
 
-      {/* if there's a prop that says selectable, show select button */}
-      {/* if there's a propt that says add-to-library-able, show add to library button */}
+    
+      {/* create  */}
     </div>
   )
   
