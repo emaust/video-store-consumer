@@ -8,7 +8,7 @@ class Search extends Component {
     this.state = {
       titleSearch: "",
       searchResults: [],
-      selectedMovie: "",
+      success: "",
       error: "",
     } 
   }
@@ -40,6 +40,24 @@ class Search extends Component {
     this.setState(updatedState);
   }
 
+  callUponAxios = (movieData) => {
+    axios.post('http://localhost:3000/movies', movieData)
+    .then((response) => {
+      console.log('response', response)
+      this.props.addMovie(movieData)
+      this.setState(
+        {success: `added ${movieData.title} to database`}
+      )
+    })
+    .catch((error) => {
+      console.log('error',error)
+      this.setState(
+        {error: `got an error when trying to add ${movieData.title} to database`}
+      )
+    })
+    // .finally to clear success and error state?
+  }
+
   render() { 
     
     return (
@@ -66,11 +84,18 @@ class Search extends Component {
         </form>
 
         <div>
-          {this.state.searchResults ? <Library movies={this.state.searchResults} /> : "" }
+          {this.state.searchResults ? 
+            <Library 
+              movies={this.state.searchResults} 
+              buttonText="Add to El Video's Rental Library"
+              onMovieButtonClick={this.callUponAxios}
+            /> 
+            : "" 
+          }
         </div>
 
       </div>
-    )};
+    )}
   }
 
 export default Search;
