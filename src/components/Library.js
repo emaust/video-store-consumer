@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Movie from './Movie';
 
-const Library = ({movies, buttonText, onMovieButtonClick}) => {
+const Library = ({movies, buttonText, selectMovie}) => {
   const movieComponents = movies.map((movie) => {
     return (
       <Movie 
@@ -12,7 +12,7 @@ const Library = ({movies, buttonText, onMovieButtonClick}) => {
         releaseDate={movie.release_date}
         imageUrl={movie.image_url}
         buttonText={buttonText}
-        onButtonClick={ () => onMovieButtonClick(movie)}
+        onButtonClick={ () => selectMovie(movie.id)}
       />
     )
   })
