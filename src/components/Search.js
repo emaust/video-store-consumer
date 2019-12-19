@@ -8,6 +8,7 @@ class Search extends Component {
     this.state = {
       titleSearch: "",
       searchResults: [],
+      selectedMovie: "",
       error: "",
     } 
   }
@@ -67,6 +68,7 @@ class Search extends Component {
         <div>
           {this.state.searchResults ? <Library movies={this.state.searchResults} /> : "" }
         </div>
+
       </div>
     )};
   }
