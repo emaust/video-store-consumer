@@ -56,10 +56,13 @@ class App extends Component {
         error: error
       })
     })
-  selectMovie (movieID) {
-
-
   }
+
+
+  // selectMovie (movieID) {
+
+
+  // }
 
   addToLibrary = (movie) => {
     console.log('trying to add movie to library')
@@ -68,58 +71,55 @@ class App extends Component {
     this.setState({
       libraryMovies,
     })
-
   }
 
   render() {
     return (
       <Router>
         <div className="App">
-        <header className="App-header">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img>
-        </header>
+          <header className="App-header">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img>
+          </header>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/library">Library</Link>
+                </li>
+                <li>
+                  <Link to="/search">Search</Link>
+                </li>
+                <li>
+                  <Link to="/customers">Customers</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/customers">Customers</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-    <Switch>
-      {/* <Route path="/">
-        <Home />
-      </Route> */}
-      <Route path="/library">
-        <Library 
-          movies={this.state.libraryMovies} 
-          selectMovie={this.selectMovie}
-        />
-      </Route>
-      <Route path="/search">
-        <Search 
-          addMovie={this.addToLibrary}/>
-      </Route>
-      <Route path="/customers">
-        <Customers
-          customers={this.state.libraryCustomers}
-        />
-      </Route>
-    </Switch>
+      <Switch>
+        {/* <Route path="/">
+          <Home />
+        </Route> */}
+        <Route path="/library">
+          <Library 
+            movies={this.state.libraryMovies} 
+            selectMovie={this.selectMovie}
+          />
+        </Route>
+        <Route path="/search">
+          <Search 
+            addMovie={this.addToLibrary}/>
+        </Route>
+        <Route path="/customers">
+          <Customers
+            customers={this.state.libraryCustomers}
+          />
+        </Route>
+      </Switch>
     </Router>
-    );
+    )};
   }
-}
 
 export default App;
