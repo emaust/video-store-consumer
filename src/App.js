@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import Home from './components/Home';
 
@@ -45,6 +45,20 @@ class App extends Component {
     })
   }
 
+  selectMovie (movieID) {
+
+
+  }
+
+  addToLibrary = (movie) => {
+    console.log('trying to add movie to library')
+    const libraryMovies = this.state.libraryMovies;
+    libraryMovies.push(movie);
+    this.setState({
+      libraryMovies,
+    })
+
+  }
 
   render() {
     return (
@@ -77,11 +91,15 @@ class App extends Component {
       {/* <Route path="/">
         <Home />
       </Route> */}
-      {/* <Route path="/library">
-        <Library />
-      </Route> */}
+      <Route path="/library">
+        <Library 
+          movies={this.state.libraryMovies} 
+          selectMovie={this.selectMovie}
+        />
+      </Route>
       <Route path="/search">
-        <Search />
+        <Search 
+          addMovie={this.addToLibrary}/>
       </Route>
       {/* <Route path="/customers">
         <Customers />

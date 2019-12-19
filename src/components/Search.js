@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Library from './Library';
 class Search extends Component {
   
   constructor(props) {
@@ -7,6 +8,7 @@ class Search extends Component {
     this.state = {
       titleSearch: "",
       searchResults: [],
+      success: "",
       error: "",
     } 
   }
@@ -38,30 +40,62 @@ class Search extends Component {
     this.setState(updatedState);
   }
 
+  callUponAxios = (movieData) => {
+    axios.post('http://localhost:3000/movies', movieData)
+    .then((response) => {
+      console.log('response', response)
+      this.props.addMovie(movieData)
+      this.setState(
+        {success: `added ${movieData.title} to database`}
+      )
+    })
+    .catch((error) => {
+      console.log('error',error)
+      this.setState(
+        {error: `got an error when trying to add ${movieData.title} to database`}
+      )
+    })
+    // .finally to clear success and error state?
+  }
+
   render() { 
     
     return (
-      <form
-      name="movie-search"
-      onSubmit={this.onSubmitSearch}
-      >
-       <div>
-         <label htmlFor="movie-search">Search for Movie: </label>
-        <input
-          type="text"
-          name="titleSearch"
-          value={this.state.title}
-          onChange={this.onInputChange}
-          placeholder="Enter movie title"
-          />
-          <input
-          type="submit"
-          value="Submit"
-          onClick={this.onSubmitSearch}
-          />
-       </div>
-      </form>
-    )};
+      <div>
+        <form
+        name="movie-search"
+        onSubmit={this.onSubmitSearch}
+        >
+          <div>
+            <label htmlFor="movie-search">Search for Movie: </label>
+            <input
+              type="text"
+              name="titleSearch"
+              value={this.state.title}
+              onChange={this.onInputChange}
+              placeholder="Enter movie title"
+              />
+              <input
+              type="submit"
+              value="Submit"
+              onClick={this.onSubmitSearch}
+              />
+          </div>
+        </form>
+
+        <div>
+          {this.state.searchResults ? 
+            <Library 
+              movies={this.state.searchResults} 
+              buttonText="Add to El Video's Rental Library"
+              onMovieButtonClick={this.callUponAxios}
+            /> 
+            : "" 
+          }
+        </div>
+
+      </div>
+    )}
   }
 
 export default Search;
