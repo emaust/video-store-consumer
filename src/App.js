@@ -56,6 +56,19 @@ class App extends Component {
         error: error
       })
     })
+  selectMovie (movieID) {
+
+
+  }
+
+  addToLibrary = (movie) => {
+    console.log('trying to add movie to library')
+    const libraryMovies = this.state.libraryMovies;
+    libraryMovies.push(movie);
+    this.setState({
+      libraryMovies,
+    })
+
   }
 
   render() {
@@ -90,11 +103,13 @@ class App extends Component {
       </Route> */}
       <Route path="/library">
         <Library 
-          movies={this.state.libraryMovies}
+          movies={this.state.libraryMovies} 
+          selectMovie={this.selectMovie}
         />
       </Route>
       <Route path="/search">
-        <Search />
+        <Search 
+          addMovie={this.addToLibrary}/>
       </Route>
       <Route path="/customers">
         <Customers
