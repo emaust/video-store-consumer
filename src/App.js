@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import Home from './components/Home';
-
+import Customers from './components/Customers';
 import Search from './components/Search';
 import Library from './components/Library';
 
@@ -25,6 +25,7 @@ class App extends Component {
 
     this.state = {
       libraryMovies: [],
+      libraryCustomers: [],
       selectedCustomer: undefined,
       selectedMovie: undefined,
       error: '',
@@ -43,16 +44,26 @@ class App extends Component {
         error: error
       })
     })
-  }
 
+    axios.get('http://localhost:3000/customers')
+    .then((response) => {
+      this.setState({
+        libraryCustomers: response.data
+      })
+    })
+    .catch((error) => {
+      this.setState({
+        error: error
+      })
+    })
+  }
 
   render() {
     return (
       <Router>
         <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">El Video</h1>
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img>
         </header>
 
           <nav>
@@ -77,15 +88,19 @@ class App extends Component {
       {/* <Route path="/">
         <Home />
       </Route> */}
-      {/* <Route path="/library">
-        <Library />
-      </Route> */}
+      <Route path="/library">
+        <Library 
+          movies={this.state.libraryMovies}
+        />
+      </Route>
       <Route path="/search">
         <Search />
       </Route>
-      {/* <Route path="/customers">
-        <Customers />
-      </Route> */}
+      <Route path="/customers">
+        <Customers
+          customers={this.state.libraryCustomers}
+        />
+      </Route>
     </Switch>
     </Router>
     );

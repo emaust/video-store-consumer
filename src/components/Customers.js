@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Library from './components/Library';
+import Customer from './Customer';
+// import Library from './components/Library';
 
 const Customers = ({customers, returnCustomer}) => {
   const customerComponents = customers.map((customer) => {
