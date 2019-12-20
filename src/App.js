@@ -69,8 +69,18 @@ class App extends Component {
     this.setState({
       selectedMovie,
     })
+  }
 
+  selectCustomer = (customerID) => {
+    const { libraryCustomers } = this.state;
 
+    const selectedCustomer = libraryCustomers.find((customer) => {
+      return customer.id === customerID;
+    })
+
+    this.setState({
+      selectedCustomer,
+    })
   }
 
   addToLibrary = (movie) => {
@@ -109,6 +119,9 @@ class App extends Component {
         <div>
           {this.state.selectedMovie ? <p>Selected Movie: {this.state.selectedMovie.title} </p> : "" }
         </div>
+        <div>
+        {this.state.selectedCustomer ? <p>Selected Customer: {this.state.selectedCustomer.name} </p> : "" }
+        </div>
 
       <Switch>
         {/* <Route path="/">
@@ -128,6 +141,7 @@ class App extends Component {
         <Route path="/customers">
           <Customers
             customers={this.state.libraryCustomers}
+            selectCustomer={this.selectCustomer}
           />
         </Route>
       </Switch>
