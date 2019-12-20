@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Customer.css'
 
 const Customer = (props) => {
 
   const { name, address, city, state, postalCode, phone, credit, buttonText, onButtonClick } = props;
 
   return (
-    <div className="customer-container">
-      <h3>
+    <div className="card customer-card">
+      <section className="card customer-card-header">
         {name}
-      </h3>
-      <section>
+      </section>
+      <section className="customer-card-body">
         <p>{address}</p>
         <p>{city} {state} {postalCode}</p>
         <p>{phone}</p>
         <p>{credit}</p>
       </section>
 
-      <button onClick={onButtonClick} >
+      <button className="btn btn-primary" onClick={onButtonClick} >
         {buttonText}
       </button>
     </div>

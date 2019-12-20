@@ -1,0 +1,27 @@
+.customer-card {
+    display: inline-block;
+    color: white;
+    padding: .5em;
+    text-align:  center;
+    margin: 2em;
+  }
+  
+.customer-card-header {
+  color: white;
+  background-color: #00B295;
+  text-align:  center;
+} 
+
+.customer-card-body {
+  color: darkgreen;
+  background-color: #FEFDFF;
+  padding: .5em;
+  text-align:  center;
+}
+
+.btn {
+  color: white;
+  background-color: #008C75;
+  
+}
+
