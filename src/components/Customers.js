@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Customer from './Customer';
-// import Library from './components/Library';
+
+
 
 const Customers = ({customers, selectCustomer}) => {
   const customerComponents = customers.map((customer) => {
@@ -21,7 +23,7 @@ const Customers = ({customers, selectCustomer}) => {
   })
 
   return (
-    <div>
+    <div align="center">
       {customerComponents}
     </div>
   )
