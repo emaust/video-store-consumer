@@ -1,4 +1,6 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Movie.css'
 
 const Movie = (props) => {
 
@@ -6,28 +8,22 @@ const Movie = (props) => {
   // use id from props??
 
   return (
-    <div className="movie-container">
-      <section>
-        <h3>
-          {title}
-        </h3>
-        <img src={imageUrl} alt={`Movie cover image for ${title}`}/>
-
+    <div className="card movie-card">
+      <section className="card movie-card-header">
+        {title}  --  {releaseDate}
       </section>
+      <img class="card-img-top img-fluid" src={imageUrl} alt="Movie Image" />
       
-      <p>
+      <section className="movie-card-body">
         {overview}
-      </p>
-      <p>
-        {releaseDate}
-      </p>
+      </section>
 
-      <button onClick={onButtonClick} >
+      <button className="btn btn-primary" onClick={onButtonClick} >
         {buttonText}
       </button>
     </div>
   )
-  
 }
 
 export default Movie;
+

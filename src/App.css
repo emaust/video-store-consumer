@@ -24,6 +24,23 @@
   font-size: large;
 }
 
+.navbar {
+  background-color: white;
+}
+
+.ul {
+  float: left;
+}
+
+.li {
+  list-style: none;
+  display: inline;
+}
+
+.nav-item {
+  padding: 1em;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

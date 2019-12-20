@@ -128,18 +128,18 @@ class App extends Component {
           <header className="App-header">
             {/* <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img> */}
           </header>
-          <nav>
-            <ul>
-              <li>
+          <nav className="navbar">
+            <ul className="navbar-nav">
+              <li className="nav-item">
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/library">Library</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/search">Search</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/customers">Customers</Link>
               </li>
             </ul>

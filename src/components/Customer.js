@@ -22,7 +22,6 @@ const Customer = (props) => {
         {buttonText}
       </button>
     </div>
-      
   )
 }
 export default Customer;
