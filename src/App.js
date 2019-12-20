@@ -3,7 +3,7 @@ import axios from 'axios';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-// import Home from './components/Home';
+import Home from './components/Home';
 import Customers from './components/Customers';
 import Search from './components/Search';
 import Library from './components/Library';
@@ -126,12 +126,13 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            {/* <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img> */}
-          </header>
-          <nav className="navbar">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/">Home</Link>
+
+
+            <img className="App-header-logo" src="https://media.giphy.com/media/dPXxkfC3UKvbG/giphy.gif" />
+          <nav>
+            <ul>
+              <li>
+                <Link to="/Home">Home</Link>
               </li>
               <li className="nav-item">
                 <Link to="/library">Library</Link>
@@ -144,6 +145,7 @@ class App extends Component {
               </li>
             </ul>
           </nav>
+          </header>
         </div>
         <div>
 
@@ -164,9 +166,9 @@ class App extends Component {
         }
 
       <Switch>
-        {/* <Route path="/">
+        <Route path="/Home">
           <Home />
-        </Route> */}
+        </Route>
         <Route path="/library">
           <Library 
             movies={this.state.libraryMovies} 

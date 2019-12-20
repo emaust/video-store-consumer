@@ -9,10 +9,39 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  background-color: white;
+  height: auto;
   padding: 20px;
   color: white;
+}
+
+.App-header nav ul {
+  display: flex;
+  padding-top: 60px;
+  list-style: none;
+}
+
+.App-header nav li {
+  display: inline;
+  padding: 14px 20px;
+}
+
+.App-header nav li:hover {
+  background-color: #00B295;
+  color: white;
+}
+
+.App-header nav li:hover a {
+  color: inherit;
+}
+
+
+.App-header nav li a {
+  color: darkgreen;
+  font-size: 1.5em;
+  text-decoration: none;
 }
 
 .App-title {
@@ -44,4 +73,8 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App-header-logo {
+  width: 200px;
 }
