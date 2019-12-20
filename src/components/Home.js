@@ -1,14 +1,15 @@
 
 import React, { Component } from 'react';
-import Search from './Search';
-import Customers from './Customers';
-import Library from './Library'
+import './Home.css'
 
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Home = () => {
+  return (
+    <img className="home-page-image"
+      src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1"
+    />
+  )
+
 }
 
 
