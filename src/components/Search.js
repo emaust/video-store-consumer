@@ -53,7 +53,7 @@ class Search extends Component {
     .catch((error) => {
       console.log('error',error)
       this.setState(
-        {error: `got an error when trying to add ${movieData.title} to database`}
+        {error: `got an error when trying to add movie to database`}
       )
     })
     // .finally to clear success and error state?

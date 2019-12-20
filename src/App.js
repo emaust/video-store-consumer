@@ -173,7 +173,7 @@ class App extends Component {
           <Library 
             movies={this.state.libraryMovies} 
             buttonText="Select for Checkout"
-            selectMovie={this.selectMovie}
+            onMovieButtonClick={this.selectMovie}
           />
         </Route>
         <Route path="/search">
