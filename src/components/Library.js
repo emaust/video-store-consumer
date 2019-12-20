@@ -13,7 +13,7 @@ const Library = ({movies, buttonText, onMovieButtonClick}) => {
         releaseDate={movie.release_date}
         imageUrl={movie.image_url}
         buttonText={buttonText}
-        onButtonClick={ () => onMovieButtonClick(movie.id)}
+        onButtonClick={ () => onMovieButtonClick(movie)}
       />
     )
   })
