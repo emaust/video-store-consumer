@@ -59,10 +59,29 @@ class App extends Component {
   }
 
 
-  // selectMovie (movieID) {
+  selectMovie = (movieID) => {
+    const { libraryMovies } = this.state;
 
+    const selectedMovie = libraryMovies.find((movie) => {
+      return movie.id === movieID;
+    })
 
-  // }
+    this.setState({
+      selectedMovie,
+    })
+  }
+
+  selectCustomer = (customerID) => {
+    const { libraryCustomers } = this.state;
+
+    const selectedCustomer = libraryCustomers.find((customer) => {
+      return customer.id === customerID;
+    })
+
+    this.setState({
+      selectedCustomer,
+    })
+  }
 
   addToLibrary = (movie) => {
     console.log('trying to add movie to library')
@@ -78,25 +97,31 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img>
+            {/* <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"></img> */}
           </header>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/library">Library</Link>
-                </li>
-                <li>
-                  <Link to="/search">Search</Link>
-                </li>
-                <li>
-                  <Link to="/customers">Customers</Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/library">Library</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+              <li>
+                <Link to="/customers">Customers</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          {this.state.selectedMovie ? <p>Selected Movie: {this.state.selectedMovie.title} </p> : "" }
+        </div>
+        <div>
+        {this.state.selectedCustomer ? <p>Selected Customer: {this.state.selectedCustomer.name} </p> : "" }
+        </div>
 
       <Switch>
         {/* <Route path="/">
@@ -105,6 +130,7 @@ class App extends Component {
         <Route path="/library">
           <Library 
             movies={this.state.libraryMovies} 
+            buttonText="Select for Checkout"
             selectMovie={this.selectMovie}
           />
         </Route>
@@ -115,6 +141,7 @@ class App extends Component {
         <Route path="/customers">
           <Customers
             customers={this.state.libraryCustomers}
+            selectCustomer={this.selectCustomer}
           />
         </Route>
       </Switch>
