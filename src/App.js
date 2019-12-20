@@ -28,6 +28,7 @@ class App extends Component {
       libraryCustomers: [],
       selectedCustomer: undefined,
       selectedMovie: undefined,
+      successMessage: '',
       error: '',
     };
   }
@@ -92,6 +93,34 @@ class App extends Component {
     })
   }
 
+  callethUponThyAxios = () => {
+
+    console.log('customer id', this.state.selectedCustomer.id)
+    console.log('movie title', this.state.selectedMovie.title)
+
+    let dueDate = new Date();
+    dueDate.setDate(dueDate.getDate() + 7);
+    console.log('dueDate', dueDate)
+
+    axios.post(`http://localhost:3000/rentals/${this.state.selectedMovie.title}/check-out/`, {
+      customer_id: this.state.selectedCustomer.id,
+      due_date: dueDate,
+
+    })
+    .then((response) => {
+      console.log('Successfully checked out movie!', response)
+      this.setState({
+        selectedCustomer: "",
+        selectedMovie: "",
+        successMessage: "Successfully Checked Out!",
+      }
+      )
+    })
+    .catch((error) => {
+      console.log('There was an error, unable to checkout movie', error)
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -117,11 +146,22 @@ class App extends Component {
           </nav>
         </div>
         <div>
+
+    {/* Show success and failure messages */}
+    {/* {this.state.successMessage ? <p>{this.state.successMessage}</p> : ""} */}
+        </div>
+        <div>
           {this.state.selectedMovie ? <p>Selected Movie: {this.state.selectedMovie.title} </p> : "" }
         </div>
         <div>
         {this.state.selectedCustomer ? <p>Selected Customer: {this.state.selectedCustomer.name} </p> : "" }
         </div>
+        { this.state.selectedMovie && this.state.selectedCustomer ? 
+        <button onClick={this.callethUponThyAxios}>
+          Checkout
+        </button>
+        : ""
+        }
 
       <Switch>
         {/* <Route path="/">
@@ -146,7 +186,7 @@ class App extends Component {
         </Route>
       </Switch>
     </Router>
-    )};
+    )}
   }
 
 export default App;
