@@ -56,7 +56,7 @@ class Search extends Component {
         {error: `got an error when trying to add movie to database`}
       )
     })
-    // .finally to clear success and error state?
+    
   }
 
   render() { 

@@ -7,16 +7,12 @@ import Home from './components/Home';
 import Customers from './components/Customers';
 import Search from './components/Search';
 import Library from './components/Library';
-
-// import Customers from './components/Customers';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-
-
 
 class App extends Component {
 
@@ -147,11 +143,7 @@ class App extends Component {
           </nav>
           </header>
         </div>
-        <div>
-
-    {/* Show success and failure messages */}
-    {/* {this.state.successMessage ? <p>{this.state.successMessage}</p> : ""} */}
-        </div>
+        
         <div>
           {this.state.selectedMovie ? <p>Selected Movie: {this.state.selectedMovie.title} </p> : "" }
         </div>

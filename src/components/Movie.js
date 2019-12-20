@@ -5,7 +5,6 @@ import './Movie.css'
 const Movie = (props) => {
 
   const { title, imageUrl, overview, releaseDate, buttonText, onButtonClick } = props;
-  // use id from props??
 
   return (
     <div className="card movie-card">
