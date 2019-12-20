@@ -126,19 +126,21 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
+
+
             <img className="App-header-logo" src="https://media.giphy.com/media/dPXxkfC3UKvbG/giphy.gif" />
           <nav>
             <ul>
               <li>
                 <Link to="/Home">Home</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/library">Library</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/search">Search</Link>
               </li>
-              <li>
+              <li className="nav-item">
                 <Link to="/customers">Customers</Link>
               </li>
             </ul>

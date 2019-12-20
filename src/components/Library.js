@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Movie from './Movie';
 
 const Library = ({movies, buttonText, selectMovie}) => {
@@ -18,7 +19,7 @@ const Library = ({movies, buttonText, selectMovie}) => {
   })
 
   return (
-    <div>
+    <div align="center">
       {movieComponents}
     </div>
   )
