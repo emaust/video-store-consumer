@@ -62,27 +62,34 @@ class Search extends Component {
   render() { 
     
     return (
-      <div>
+   
+      
+      <div>  
         <form
         name="movie-search"
         onSubmit={this.onSubmitSearch}
         >
-          <div>
-            <label htmlFor="movie-search">Search for Movie: </label>
+          <div align="center">
+            <label htmlFor="movie-search"></label>
             <input
               type="text"
               name="titleSearch"
               value={this.state.title}
               onChange={this.onInputChange}
-              placeholder="Enter movie title"
+              placeholder="Search movie title"
               />
               <input
               type="submit"
               value="Submit"
               onClick={this.onSubmitSearch}
+              className="btn btn-primary btn-sm"
               />
           </div>
         </form>
+
+        <section align="center">
+        <img src="https://wikiclipart.com/wp-content/uploads/2017/04/Popcorn-kernel-clipart-free-images-9.jpg"></img>
+      </section>
 
         <div>
           {this.state.searchResults ? 
